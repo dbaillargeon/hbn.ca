@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141006182717) do
+ActiveRecord::Schema.define(version: 20141006191152) do
+
+  create_table "broadcasters", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -25,6 +31,18 @@ ActiveRecord::Schema.define(version: 20141006182717) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
+  create_table "season_schedules", force: true do |t|
+    t.integer  "season_id"
+    t.integer  "broadcaster_id"
+    t.integer  "day"
+    t.time     "hours"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "season_schedules", ["broadcaster_id"], name: "index_season_schedules_on_broadcaster_id"
+  add_index "season_schedules", ["season_id"], name: "index_season_schedules_on_season_id"
 
   create_table "seasons", force: true do |t|
     t.string   "title"

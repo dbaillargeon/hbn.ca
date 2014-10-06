@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  season_id: 
+  broadcaster_id: 
+  day: 1
+  hours: 2014-10-06 15:11:52
+
+two:
+  season_id: 
+  broadcaster_id: 
+  day: 1
+  hours: 2014-10-06 15:11:52
