@@ -1,0 +1,12 @@
+- content_for :title do
+  = "- #{Season.model_name.human.capitalize.pluralize}"
+
+= link_to "Back", root_path
+
+%h2
+  = Season.model_name.human.capitalize
+
+%ul
+  - @seasons.each do |season|
+    %li
+      = link_to season.title, season

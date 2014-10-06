@@ -1,0 +1,23 @@
+- content_for :title do
+  = "- #{Season.model_name.human.capitalize.pluralize}"
+  = "-"
+  = @season.title
+
+= link_to "Back", seasons_path
+
+%h2
+  = "#{Season.model_name.human.capitalize}"
+  %time{:datetime=>@season.year.to_s}= @season.year.year
+  = ":"
+  = @season.title
+
+= @season.description
+
+%ul
+  - @season.videos.each_with_index do |video, i|
+    %li
+      = video.title
+      Épisode: #{i+1}
+      %img{:src=>"http://i2.ytimg.com/vi/#{video.youtube_id}/0.jpg"}
+      /
+        <iframe width="560" height="315" src="//www.youtube.com/embed/#{video.youtube_id}" frameborder="0" allowfullscreen></iframe>
